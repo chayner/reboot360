@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: reboot360_development
+  username:
+  password:
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: reboot360_test
+  username:
+  password:
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: reboot360_production
+  username:
+  password:
