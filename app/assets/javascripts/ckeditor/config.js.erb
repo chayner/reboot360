@@ -1,0 +1,47 @@
+CKEDITOR.config.contentsCss = '<%= stylesheet_path('ckeditor') %>'
+
+CKEDITOR.config.removeButtons = 'Cut,Copy,Flash,Smiley,SpecialChar,Iframe,CreateDiv,InsertPre,PageBreak,Table,Underline,Strike,Superscript,Subscript,Font,FontSize,TextColor,BGColor';
+
+CKEDITOR.config.toolbarGroups = [
+  {
+    name: 'styles'
+  }, {
+    name: 'basicstyles',
+    groups: ['basicstyles', 'cleanup']
+  }, {
+    name: 'paragraph',
+    groups: ['list', 'indent', 'blocks']
+  }, '/', {
+    name: 'links'
+  }, {
+    name: 'insert'
+  }, {
+    name: 'tools'
+  }, {
+    name: 'others'
+  }, {
+    name: 'editing',
+    groups: ['spellchecker']
+  }, {
+    name: 'colors'
+  }, {
+    name: 'mode'
+  }
+];
+
+CKEDITOR.stylesSet.add('default', [
+  {
+    name: 'Twitter Quote',
+    element: 'span',
+    attributes: {
+      'data-twitter-quote': 'twitter-quote',
+      'class': 'twitter-quote'
+    }
+  }, {
+    name: 'Content Text Ad',
+    element: 'span',
+    attributes: {
+      'class': 'content-text-ad'
+    }
+  }
+]);

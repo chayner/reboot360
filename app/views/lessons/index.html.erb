@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Weekly Curriculum</h1>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li><a href="<%= lesson_path(lesson.id) %>">
+      <%= image_tag(lesson.image_url(:faces_thumb)) %>
+      <h3><%= "Week #{lesson.week}: #{lesson.title}" %></h3>
+    </li>
+  <% end %>
+</ul>
