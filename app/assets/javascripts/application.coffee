@@ -13,6 +13,10 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
-#= require_self
 #= require slidebars.min
-#= require_tree .
+#= require_self
+#= require navigation
+#= require utilities
+
+$ ->
+  window.App.utilities = new R360.Utilities()

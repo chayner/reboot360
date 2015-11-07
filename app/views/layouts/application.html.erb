@@ -35,6 +35,10 @@
       <%= javascript_include_tag 'ie8' %>
     <![endif]-->
 
+    <script type="text/javascript">
+      R360 = {};
+      App = {};
+    </script>
     <%= javascript_include_tag 'application' %>
     <%# all page-specific elements go into content_for(:body_close) %>
     <%= yield :body_close %>
