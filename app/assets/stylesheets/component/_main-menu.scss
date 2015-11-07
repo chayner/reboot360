@@ -1,0 +1,122 @@
+$show-desktop-menu: min-width 960px;
+
+.MainMenu {
+  @include outer-container;
+  background: $white;
+  font-family: $header-font-family;
+  padding: 0.5em 1em;
+  @include media($small) {
+    padding: 0.5em 2em 0.5em 1.5em;
+  }
+}
+
+  .MainMenu-logo {
+    @include inline-block;
+    max-width: 100px;
+    @include media($small) {
+      max-width: 150px;
+    }
+  }
+
+  .MainMenu-list {
+    display: none;
+    line-height: 40px;
+    margin-left: 1em;
+    overflow: hidden;
+    @include media($small) {
+      line-height: 60px;
+    }
+    @include media($xlarge) {
+      margin-left: 2em;
+    }
+    @include media($show-desktop-menu) {
+      @include inline-block;
+    }
+  }
+    .MainMenu-item {
+      float: left;
+      font-weight: 700;
+      margin: 0 1em;
+      text-transform: uppercase;
+      i {
+        display: none;
+      }
+    }
+
+  .MainMenu-list--profile {
+    display: none;
+  }
+
+  .MainMenu-list--tools {
+    @include inline-block;
+    float: right;
+    margin-left: 0;
+  }
+    .MainMenu-toolsItem {
+      color: $light-gray;
+      font-size: 1.5em;
+      margin-left: 1em;
+    }
+
+
+.MainMenu-toolsItem--profile {
+  display: none;
+  @include media($show-desktop-menu) {
+    display: block;
+  }
+}
+
+.MainMenu-toolsItem--menu {
+  @include media($show-desktop-menu) {
+    display: none;
+  }
+}
+
+.MainMenu--sidebar {
+  background: transparent;
+  padding: 0;
+
+  .MainMenu-logo {
+    display: none;
+  }
+
+  .MainMenu-list {
+    background: $dark-gray;
+    display: block;
+    line-height: 1.4em;
+    margin-left: 0;
+
+    @include media($show-desktop-menu) {
+      display: none;
+    }
+  }
+
+  .MainMenu-item {
+    float: none;
+    margin: 0;
+    i {
+      display: inline;
+      margin-right: 0.5em;
+    }
+    a {
+      border-bottom: 1px $base-border-color solid;
+      color: $base-link-color-alt;
+      display: block;
+      padding: 1em;
+      &:hover {
+        background: $dark-gray;
+        color: $base-accent-color;
+      }
+    }
+  }
+
+  .MainMenu-list--tools {
+    display: none;
+  }
+
+  .MainMenu-list--profile {
+    display: block;
+    background: $darker-gray;
+    border-top: 3px solid $base-border-color;
+  }
+}

@@ -1,0 +1,19 @@
+<section class="SigninForm u-dark-background">
+  <%= image_tag 'logo-reboot-white.png', class: "reboot-logo" %>
+
+  <h3 class="Signin-title">Forgot Your Password?</h3>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="SigninForm-field">
+      <label for="email" class="SigninForm-label--icon"><i class="fa fa-envelope-o fa-fw"></i></label>
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="SigninForm-field--submit">
+      <%= f.submit "Send me instructions" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>

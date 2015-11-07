@@ -7,25 +7,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>reboot360</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" id="ms-fonts" href="//fonts.googleapis.com/css?family=Lato:700,900,regular" type="text/css" media="all">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic|Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
     <%= stylesheet_link_tag 'screen', :media => 'all' %>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag :modernizr %>
   </head>
 
-  <body>
+  <body class="<%= "#{controller_name} #{controller_name}-#{action_name}" %>">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div id="sb-site">
+      <%= render 'shared/navigation', locals: { sidebar: false } %>
+      <%= render 'shared/flash' %>
+      <%= yield %>
+    </div>
+    <div class="sb-slidebar sb-right">
+      <%= render 'shared/sidebar_navigation' %>
+    </div>
 
-    <%= render 'shared/navigation' %>
-
-    <%= render 'shared/flash' %>
-    <%= yield %>
 
     <!--[if IE 8]>
       <%= javascript_include_tag 'ie8' %>

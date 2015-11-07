@@ -17,6 +17,7 @@
  * -----------------------------------------------------------------------------*/
 @import "base/variables";
 
+
 /* Mixins
  * -----------------------------------------------------------------------------*/
 @import "base/mixins/background-opacity";
@@ -46,19 +47,22 @@
 @import "base/library";
 @import "base/application";
 
+@import "layouts/welcome";
+
 /* Plugins
  * -----------------------------------------------------------------------------*/
-@import "zocial/zocial";
 @import "font-awesome";
 
 /* Refills
  * -----------------------------------------------------------------------------*/
 @import "refills/modal";
-@import "refills/navigation";
+@import "refills/slidebars";
+// @import "refills/navigation";
 
 /* Components
  * -----------------------------------------------------------------------------*/
-// @import "component/top-menu";
+@import "component/main-menu";
+@import "component/signin-password";
 
 /* Pages
  * -----------------------------------------------------------------------------*/

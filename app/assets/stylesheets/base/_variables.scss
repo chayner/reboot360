@@ -1,8 +1,9 @@
 // Typography
-$sans-serif: $helvetica;
+$sans-serif: 'PT Sans', $helvetica;
+$sans-serif-alt: 'Lato', $helvetica;
 $serif: $georgia;
 $base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$header-font-family: $sans-serif-alt;
 
 // Sizes
 $base-font-size: 1em;
@@ -12,35 +13,39 @@ $header-line-height: $base-font-size * 1.25;
 $base-border-radius: em(3);
 
 // Colors
-$blue: #477DCA;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #DDD;
-$light-red: #FBE3E4;
-$light-yellow: #FFF6BF;
-$light-green: #E6EFC2;
+$green: #D2D951;
+$orange: #D7B73E;
+$red: #DF4D44;
+$darker-gray: #1C1C21;
+$dark-gray: #25252C;
+$medium-gray: #5B6777;
+$light-gray: #B5C0C1;
+$lighter-gray: #F4F7FA;
+$white: #FFFFFF;
+
 
 // Background Color
 $base-background-color: white;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: $green;
 
 // Link Colors
-$base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
-$base-button-color: $base-link-color;
-$hover-button-color: $hover-link-color;
+$base-link-color: $dark-gray;
+$base-link-color-alt: $white;
+$hover-link-color: $base-accent-color;
+$base-button-color: $base-accent-color;
+$hover-button-color: darken($base-accent-color, 15);
 
 // Border color
 $base-border-color: $light-gray;
 
 // Flash Colors
-$alert-color: $light-yellow;
-$error-color: $light-red;
-$notice-color: $light-yellow;
-$success-color: $light-green;
+$alert-color: lighten($red, 15);
+$error-color: lighten($red, 15);
+$notice-color: lighten($green, 15);
+$success-color: lighten($green, 15);
 
 // Forms
 $form-border-color: $base-border-color;

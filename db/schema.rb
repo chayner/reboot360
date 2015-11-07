@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107041121) do
+ActiveRecord::Schema.define(version: 20151107173301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20151107041121) do
     t.string   "lesson_pdf_url"
     t.string   "handout_pdf_url"
     t.text     "weekly_summary"
+    t.string   "image"
   end
 
   add_index "lessons", ["slug"], name: "index_lessons_on_slug", unique: true, using: :btree
