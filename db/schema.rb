@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816200507) do
+ActiveRecord::Schema.define(version: 20151107041121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,13 +53,14 @@ ActiveRecord::Schema.define(version: 20150816200507) do
     t.integer  "week"
     t.string   "title"
     t.text     "description"
-    t.string   "image"
-    t.string   "teaching_content"
-    t.string   "teaching_tips"
-    t.string   "weekly_communication"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "slug"
+    t.text     "video_embed"
+    t.string   "video_dnload_url"
+    t.string   "lesson_pdf_url"
+    t.string   "handout_pdf_url"
+    t.text     "weekly_summary"
   end
 
   add_index "lessons", ["slug"], name: "index_lessons_on_slug", unique: true, using: :btree
@@ -77,6 +78,8 @@ ActiveRecord::Schema.define(version: 20150816200507) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,0 +1,21 @@
+<div id="profile">
+  <div id="profile-form">
+    <h2>My Profile</h2>
+    <%= form_for current_user, :as => 'user', :url => profile_path(current_user), :html => {role: 'form', class: "nifty_form"} do |f| %>
+
+      <div id="user-info">
+        <label>Name:</labe>
+        <%= f.text_field :name %>
+
+        <label>Email:</labe>
+        <%= f.text_field :email %>
+
+        <label>Phone:</labe>
+        <%= f.text_field :phone %>
+      </div>
+
+      <%= f.submit 'Update your Profile', :class => 'btn btn-primary' %>
+    <% end -%>
+  </div>
+
+</div>

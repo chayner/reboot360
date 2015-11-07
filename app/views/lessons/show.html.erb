@@ -1,38 +1,33 @@
+<%= render "lesson_nav" %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Week:</strong>
-  <%= @lesson.week %>
-</p>
+<header class="LessonHeader">
+  <h1 class="LessonHeader__title"><%= @lesson.title %></h1>
+  <div class="LessonHeader__subtitle"><%= @lesson.description %></div>
+</header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @lesson.title %>
-</p>
+<section class="LessonBody">
 
-<p>
-  <strong>Description:</strong>
-  <%= @lesson.description %>
-</p>
+  <div class="LessonVideo"><%= @lesson.video_embed %></div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @lesson.image %>
-</p>
+  <ul class="LessonDownloads">
+    <li><%= link_to "Download 1", @lesson.video_dnload_url %></li>
+    <li><%= link_to "Download 2", @lesson.lesson_pdf_url %></li>
+    <li><%= link_to "Download 3", @lesson.handout_pdf_url %></li>
+  </ul>
 
-<p>
-  <strong>Teaching content:</strong>
-  <%= @lesson.teaching_content %>
-</p>
+</section>
 
-<p>
-  <strong>Teaching tips:</strong>
-  <%= @lesson.teaching_tips %>
-</p>
+<section class="LessonTeaching">
+  <h2>Teaching Tips</h2>
 
-<p>
-  <strong>Weekly communication:</strong>
-  <%= @lesson.weekly_communication %>
-</p>
+  <div class="LessionTeachingTips">Video 1</div>
+  <div class="LessionTeachingTips">Video 2</div>
+</section>
+
+<section class="LessonWeeklySummary">
+  <h2>Weekly Summary</h2>
+  <%= @lesson.weekly_summary %>
+</section>
 
 <%= link_to 'Back', lessons_path %>

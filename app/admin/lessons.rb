@@ -10,17 +10,14 @@ ActiveAdmin.register Lesson do
     column :title do |lesson|
       link_to lesson.title, edit_admin_lesson_path(lesson)
     end
-    column :image do |lesson|
-      image_tag(lesson.image_url(:faces_thumb, secure: true), :size => "150x100") if lesson.image?
-    end
     actions do |a|
       link_to "Site", lesson_path(a)
     end
   end
 
   show title: :title do
-    panel 'Episode details' do
-      attributes_table_for episode do
+    panel 'Lesson details' do
+      attributes_table_for lessons do
         row :subtitle
         row :episode_number
         row :aired_on
@@ -38,17 +35,6 @@ ActiveAdmin.register Lesson do
         row :teaser
         row :meta_keywords
         row :meta_description
-      end
-    end
-
-    panel 'Images' do
-      attributes_table_for episode do
-        row :wide_image do |episode|
-          image_tag(episode.wide_image_url(:small, secure: true)) if episode.wide_image?
-        end
-        row :square_image do |episode|
-          image_tag(episode.square_image_url(:medium, secure: true)) if episode.square_image?
-        end
       end
     end
   end
@@ -71,11 +57,12 @@ ActiveAdmin.register Lesson do
       f.input :week
 
       f.input :description, :as => :text, :input_html => {:rows => 4}
-      f.input :image, :as => :cloudinary_image_upload, :hint => 'Image file size should be less than 150k. Always run images through https://tinyjpg.com/ before uploading'
 
-      f.input :teaching_content
-      f.input :teaching_tips
-      f.input :weekly_communication
+      f.input :video_embed, :as => :text, :input_html => {:rows => 4}
+      f.input :video_dnload_url, :as => :string
+      f.input :lesson_pdf_url, :as => :string
+      f.input :handout_pdf_url, :as => :string
+      f.input :weekly_summary, :as => :text, :input_html => {:rows => 4}
     end
 
     f.inputs "Related Resources" do

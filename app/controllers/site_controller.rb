@@ -1,4 +1,8 @@
 class SiteController < ApplicationController
-  def index
+  def start
   end
+
+  def promote
+  end
+
 end

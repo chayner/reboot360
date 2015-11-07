@@ -1,13 +1,13 @@
 <header class="navigation">
   <div class="navigation-wrapper">
-    <%= link_to("<i class='fa fa-home'></i>".html_safe, root_path, :class => 'logo') %>
+    <%= link_to(image_tag('reboot-logo.png').html_safe, root_path, :class => 'logo') %>
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
-        <!-- <li class="nav-link"><a href="javascript:void(0)">My Posts</a></li> -->
-        <li class="nav-link"><a href="/start">Start Here</a></li>
-        <li class="nav-link"><a href="/promote">Promote</a></li>
-        <li class="nav-link"><a href="/lessons">Weekly Curriculum</a></li>
+        <li class="nav-link"><a href="/start">Leader Training</a></li>
+        <li class="nav-link"><a href="/lessons">Weekly Materials</a></li>
+        <li class="nav-link"><a href="/promote">Promote Your Group</a></li>
+        <li class="nav-link"><a href="/store">Store</a></li>
         <% if user_signed_in? %>
           <li class="nav-link mobile-only"><%= link_to("My Profile", profile_path) %></li>
           <li class="nav-link mobile-only"><%= link_to("Log out", :destroy_user_session, :method => "delete") %></li>
@@ -23,7 +23,6 @@
     <div class="navigation-tools">
       <% if user_signed_in? %>
         <div class="user-bar">
-          <img class="profile" src="<%= current_user.image %>" alt="" height="30">
           <%= link_to("My Profile", profile_path, :class => 'profile-link') %>
         </div>
         <%= link_to("Log out", :destroy_user_session , :class => "sign-up", :method => "delete") %>

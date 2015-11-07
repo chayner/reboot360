@@ -1,0 +1,7 @@
+<nav id="nav-lesson" class="SidebarNav">
+  <ul>
+    <% @lessons.each do |lesson| %>
+    <li><%= link_to "Week #{lesson.week}", lesson_path(lesson) %></li>
+    <% end %>
+  </ul>
+</nav>
