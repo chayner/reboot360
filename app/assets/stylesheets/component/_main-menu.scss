@@ -103,10 +103,6 @@ $show-desktop-menu: min-width 960px;
       color: $base-link-color-alt;
       display: block;
       padding: 1em;
-      &:hover {
-        background: $dark-gray;
-        color: $base-accent-color;
-      }
     }
   }
 
