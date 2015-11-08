@@ -5,7 +5,6 @@ ActiveAdmin.register Lesson do
   scope :all
 
   index do
-    column :id
     column :week
     column :title do |lesson|
       link_to lesson.title, edit_admin_lesson_path(lesson)
@@ -20,49 +19,22 @@ ActiveAdmin.register Lesson do
 
   show title: :title do
     panel 'Lesson details' do
-      attributes_table_for lessons do
-        row :subtitle
-        row :episode_number
-        row :aired_on
-        row :published_at
-        row :guests
-        row (:featured) { status_tag('True', :class => episode.in_feed ? "ok" : "error", :label => episode.in_feed ? "True" : "False") }
-        row (:in_feed) { status_tag('True', :class => episode.in_feed ? "ok" : "error", :label => episode.in_feed ? "True" : "False") }
-
-        row :mp3_url
-        row :episode_length
-        row(:mp3_valid) { status_tag('Valid', :class => episode.mp3_valid? ? "ok" : "error", :label => episode.mp3_valid? ? "Valid" : "Invalid") }
-
-        row :tag_list
-        row :category
-        row :teaser
-        row :meta_keywords
-        row :meta_description
-      end
-    end
-
-    panel 'Images' do
-      attributes_table_for episode do
-        row :wide_image do |episode|
-          image_tag(episode.wide_image_url(:small, secure: true)) if episode.wide_image?
+      attributes_table_for lesson do
+        row :week
+        row :description
+        row :image do |episode|
+          image_tag(lesson.image_url(:faces_thumb, secure: true), :size => "150x100") if lesson.image?
         end
-        row :square_image do |episode|
-          image_tag(episode.square_image_url(:medium, secure: true)) if episode.square_image?
-        end
+        row :video_embed
+        row :videmo_dnload_url
+        row :lesson_pdf
+        row :handout_pdf
+        row :weekly_summary
       end
     end
   end
 
-  sidebar "Status", only: :show do
-    attributes_table_for episode do
-      h3 status_tag 'Published', :label => episode.published? ? "Published" : "Not Published", :class => episode.published? ? "ok" : "warn"
-      h3 status_tag 'Aired', :label => episode.aired? ? "Aired" : "Not Aired", :class => episode.aired? ? "ok" : "warn"
-      h3 status_tag 'Podcast', :label => episode.in_podcast? ? "In Podcast" : "Not in Podcast", :class => episode.in_podcast? ? "ok" : "error"
-    end
-  end
-
-
-  form do |f|
+  form(:html => { :multipart => true }) do |f|
 
     f.semantic_errors
 
@@ -75,8 +47,10 @@ ActiveAdmin.register Lesson do
 
       f.input :video_embed, :as => :text, :input_html => {:rows => 4}
       f.input :video_dnload_url, :as => :string
-      f.input :lesson_pdf_url, :as => :string
-      f.input :handout_pdf_url, :as => :string
+      f.input :lesson_pdf, :as => :file, :hint => (f.object.lesson_pdf.url if f.object.lesson_pdf.present?)
+      f.input :remove_lesson_pdf, :as => :boolean
+      f.input :handout_pdf, :as => :file, :hint => f.object.handout_pdf.url
+      f.input :remove_handout_pdf, :as => :boolean
       f.input :weekly_summary, :as => :text, :input_html => {:rows => 4}
     end
 
