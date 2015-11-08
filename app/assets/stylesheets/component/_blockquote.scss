@@ -1,0 +1,17 @@
+.Blockquote {
+  background: $lighter-gray;
+  padding: $base-margin;
+}
+  .Blockquote-wrapper {
+    @include body-container;
+    border-left: 5px $orange solid;
+    padding-left: $base-margin-less;
+  }
+
+  .Blockquote-title {
+
+  }
+
+  .Blockquote-body {
+
+  }

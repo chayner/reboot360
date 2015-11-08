@@ -1,0 +1,35 @@
+.SidebarNav {
+  background: $dark-gray;
+  width: 100%;
+  @include media($medium) {
+    min-height: 100vh;
+  }
+}
+
+  .SidebarNav-item {
+    text-align: center;
+    a {
+      color: $white;
+      display: block;
+      padding: $base-margin-less $base-margin;
+      text-transform: uppercase;
+    }
+
+    &.current_page {
+      background: $darker-gray;
+      border-right: 4px solid $green;
+    }
+  }
+
+.SidebarNav-toggle {
+  background: $darker-gray;
+  color: $white;
+  display: block;
+  font-weight: bold;
+  padding: $base-margin-less / 2 $base-margin-less;
+  text-transform: uppercase;
+
+  @include media($medium) {
+    display: none;
+  }
+}

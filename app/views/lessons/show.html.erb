@@ -1,33 +1,45 @@
-<%= render "lesson_nav" %>
-<p id="notice"><%= notice %></p>
+<%= render "lesson_nav", locals: { :nav_id => "LessonNav", :mobile => false, :current_page => @lesson } %>
+<section id="LessonBody">
+  <style>
+    .PageHeader {
+      background: url('<%= asset_path("#{@lesson.image_url}") %>');
+      background-size: cover;
+    }
+  </style>
 
-<header class="LessonHeader">
-  <h1 class="LessonHeader__title"><%= @lesson.title %></h1>
-  <div class="LessonHeader__subtitle"><%= @lesson.description %></div>
-</header>
+  <header class="PageHeader">
+    <h1 class="PageHeader-title"><%= @lesson.title %></h1>
+    <div class="PageHeader-subtitle"><%= @lesson.description %></div>
+  </header>
 
-<section class="LessonBody">
+  <div class="VideoEmbed"><%= @lesson.video_embed %></div>
 
-  <div class="LessonVideo"><%= @lesson.video_embed %></div>
+  <ul class="DownloadList">
 
-  <ul class="LessonDownloads">
-    <li><%= link_to "Download 1", @lesson.video_dnload_url %></li>
-    <li><%= link_to "Download 2", @lesson.lesson_pdf_url %></li>
-    <li><%= link_to "Download 3", @lesson.handout_pdf_url %></li>
+    <% if @lesson.video_dnload_url.present? %>
+      <li class="DownloadList-item"><%= link_to "Download 1", @lesson.video_dnload_url %></li>
+    <% end %>
+
+    <% if @lesson.lesson_pdf.present? %>
+      <li class="DownloadList-item"><%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{@lesson.lesson_pdf.file.filename}</span></span>".html_safe, @lesson.lesson_pdf_url %></li>
+    <% end %>
+    <% if @lesson.handout_pdf.present? %>
+      <li class="DownloadList-item"><%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{@lesson.handout_pdf.file.filename}</span></span>".html_safe, @lesson.handout_pdf_url %></li>
+    <% end %>
   </ul>
 
+  <section class="LessonTeaching">
+    <h2>Teaching Tips</h2>
+
+    <div class="LessionTeachingTips">Video 1</div>
+    <div class="LessionTeachingTips">Video 2</div>
+  </section>
+
+  <section class="Blockquote">
+    <div class="Blockquote-wrapper">
+      <h2 class="Blockquote-title">Weekly Summary Email</h2>
+      <div class="Blockquote-body"><%= @lesson.weekly_summary %></div>
+    </div>
+  </section>
+
 </section>
-
-<section class="LessonTeaching">
-  <h2>Teaching Tips</h2>
-
-  <div class="LessionTeachingTips">Video 1</div>
-  <div class="LessionTeachingTips">Video 2</div>
-</section>
-
-<section class="LessonWeeklySummary">
-  <h2>Weekly Summary</h2>
-  <%= @lesson.weekly_summary %>
-</section>
-
-<%= link_to 'Back', lessons_path %>

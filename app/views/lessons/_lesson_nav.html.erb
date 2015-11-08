@@ -1,7 +1,17 @@
-<nav id="nav-lesson" class="SidebarNav">
-  <ul>
-    <% @lessons.each do |lesson| %>
-    <li><%= link_to "Week #{lesson.week}", lesson_path(lesson) %></li>
-    <% end %>
-  </ul>
+<nav id="<%= locals[:nav_id] %>">
+  <div class="SidebarNav">
+    <ul>
+      <% @lessons.each do |lesson| %>
+        <li class="SidebarNav-item<%= " current_page" if current_page?(lesson_path(lesson)) %>"><%= link_to "Week #{lesson.week}", lesson_path(lesson) %></li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
+
+<% if !locals[:mobile] %>
+  <% if locals[:current_page] == :index %>
+    <%= link_to "<i class='fa fa-caret-left fa-fw'></i> View Weeks".html_safe, "#", :class => "sb-toggle-left SidebarNav-toggle" %>
+  <% else %>
+    <%= link_to "<i class='fa fa-caret-left fa-fw'></i> Week #{locals[:current_page].week}".html_safe, "#", :class => "sb-toggle-left SidebarNav-toggle" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,22 @@
+.PageHeader {
+  @include mobile-container;
+  background: $dark-gray;
+  background-size: cover;
+  background-position: center top;
+  color: $white;
+  padding-top: $base-margin-more;
+  padding-bottom: $base-margin-more;
+  text-align: center;
+}
+
+  .PageHeader-title {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+
+  .PageHeader-subtitle {
+    margin: $base-margin auto 0;
+    @include media($large) {
+      max-width: 60%;
+    }
+  }

@@ -31,6 +31,16 @@
     </div>
 
 
+    <div class="sb-slidebar sb-left sb-width-thin">
+      <% if controller_name == "lessons" %>
+        <%= render "lessons/lesson_nav", locals: { :nav_id => "MobileLessonNav", :mobile => true } %>
+      <% elsif controller_name == "training" %>
+        <%= render "training/training_nav", locals: { :nav_id => "MobileTrainingNav", :mobile => true } %>
+      <% end %>
+    </div>
+
+
+
     <!--[if IE 8]>
       <%= javascript_include_tag 'ie8' %>
     <![endif]-->

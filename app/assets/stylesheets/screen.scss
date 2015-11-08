@@ -27,6 +27,7 @@
 @import "base/mixins/placeholder";
 @import "base/mixins/selection";
 @import "base/mixins/text-overflow";
+@import "base/mixins/body-container";
 
 /* Extends
  * -----------------------------------------------------------------------------*/
@@ -48,6 +49,7 @@
 @import "base/application";
 
 @import "layouts/welcome";
+@import "layouts/lesson";
 
 /* Plugins
  * -----------------------------------------------------------------------------*/
@@ -62,7 +64,11 @@
 /* Components
  * -----------------------------------------------------------------------------*/
 @import "component/main-menu";
+@import "component/download-list";
+@import "component/page-header";
+@import "component/blockquote";
 @import "component/signin-password";
+@import "component/sidebar-nav";
 
 /* Pages
  * -----------------------------------------------------------------------------*/

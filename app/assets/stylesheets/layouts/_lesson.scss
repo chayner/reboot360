@@ -1,0 +1,53 @@
+#LessonNav, #TrainingNav {
+  display: none;
+  @include media($medium) {
+    @include span-columns(1 of 12);
+    margin: 0;
+    width: 20%;
+    height: 100%;
+  }
+  @include media($large) {
+    width: 15%;
+  }
+  @include media($xlarge) {
+    width: 10%;
+  }
+}
+
+#TrainingNav {
+  @include media($medium) {
+    width: 25%;
+  }
+  @include media($large) {
+    width: 20%;
+  }
+  @include media($xlarge) {
+    width: 15%;
+  }
+}
+
+#LessonBody, #TrainingBody {
+  @include media($medium) {
+    @include span-columns(11 of 12);
+    margin: 0;
+    width: 80%;
+  }
+  @include media($large) {
+    width: 85%;
+  }
+  @include media($xlarge) {
+    width: 90%;
+  }
+}
+
+#TrainingBody {
+  @include media($medium) {
+    width: 75%;
+  }
+  @include media($large) {
+    width: 80%;
+  }
+  @include media($xlarge) {
+    width: 85%;
+  }
+}

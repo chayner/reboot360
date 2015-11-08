@@ -1,8 +1,15 @@
-<nav class="sidebar">
-  <ul>
-    <li><%= link_to 'Build Your Team', training_build_path %></li>
-    <li><%= link_to 'Lead Your Group', training_lead_path %></li>
-    <li><%= link_to 'Grow Your Group', training_grow_path %></li>
-    <li><%= link_to 'Manage Your Group', training_manage_path %></li>
-  </ul>
+<nav id="<%= locals[:nav_id] %>">
+  <div class="SidebarNav">
+    <ul>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_build_path) %>"><%= link_to 'Build Your Team', training_build_path %></li>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_lead_path) %>"><%= link_to 'Lead Your Group', training_lead_path %></li>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_grow_path) %>"><%= link_to 'Grow Your Group', training_grow_path %></li>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_manage_path) %>"><%= link_to 'Manage Your Group', training_manage_path %></li>
+    </ul>
+  </div>
 </nav>
+
+<% if !locals[:mobile] %>
+  <% cur_page = "training.#{action_name}.title_html" %>
+  <%= link_to "<i class='fa fa-caret-left fa-fw'></i> View More Training".html_safe, "#", :class => "sb-toggle-left SidebarNav-toggle" %>
+<% end %>
