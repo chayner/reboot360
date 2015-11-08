@@ -8,15 +8,15 @@ Rails.application.routes.draw do
   match '/404' => 'errors#not_found'            , :via => [:get, :post]
   match '/422' => 'errors#unprocessable_entity' , :via => [:get, :post]
   match '/500' => 'errors#application_error'    , :via => [:get, :post]
-  root :to => 'site#start'
+  root :to => 'site#welcome'
 
   match '/profile' => 'users#profile', via: [:get, :patch], :as => :profile
   match '/promote' => 'site#promote', via: [:get], :as => :promote
-  match '/start' => 'start#index', via: [:get], :as => :start
-  match '/start/build' => 'start#index', via: [:get], :as => :start_build
-  match '/start/lead' => 'start#lead', via: [:get], :as => :start_lead
-  match '/start/grow' => 'start#grow', via: [:get], :as => :start_grow
-  match '/start/manage' => 'start#manage', via: [:get], :as => :start_manage
+  match '/training' => 'training#index', via: [:get], :as => :training
+  match '/training/build' => 'training#index', via: [:get], :as => :training_build
+  match '/training/lead' => 'training#lead', via: [:get], :as => :training_lead
+  match '/training/grow' => 'training#grow', via: [:get], :as => :training_grow
+  match '/training/manage' => 'training#manage', via: [:get], :as => :training_manage
 
 
 end
