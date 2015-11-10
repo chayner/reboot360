@@ -4,7 +4,7 @@ ActiveAdmin.register Training do
 
   scope :all
 
-  actions :index, :edit
+  actions :index, :edit, :update
 
   index do
     column :slug
