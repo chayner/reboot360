@@ -4,7 +4,7 @@ class LessonsController < InheritedResources::Base
 
   private
     def get_lessons
-      @lessons = Lesson.all()
+      @lessons = Lesson.all().order('week asc')
     end
 
     def lesson_params
