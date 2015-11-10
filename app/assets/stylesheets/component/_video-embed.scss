@@ -19,7 +19,7 @@
 .VideoEmbed--inline {
 
   @include media($small) {
-    @include inline-block;
+    display: inline-block;
     max-width: 40%;
     margin: 4%;
   }
