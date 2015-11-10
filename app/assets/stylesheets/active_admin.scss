@@ -15,3 +15,43 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+.cke_chrome {
+  width: 76% !important;
+  overflow: hidden;
+}
+
+.sidebar_section .status_tag {
+  display: block;
+  padding: 0.75em;
+  text-align: center;
+}
+a.content-refs-cust-toggle {
+  font-weight: bold;
+  text-decoration: none;
+
+  &:before {
+    content: '\f054' ;
+    font-family: FontAwesome;
+    font-style: normal;
+    margin-right: 3px;
+  }
+  &.open {
+    &:before {
+      content: '\f078 '
+    }
+  }
+}
+
+fieldset.has_many_fields li.handle {
+  right: 10px;
+  i.fa {
+    font-size: 30px;
+  }
+}
+
+.content-refs-customize {
+  background: transparentize(#000, 0.9);
+  &.closed {
+    display: none;
+  }
+}

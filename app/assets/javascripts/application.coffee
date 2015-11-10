@@ -17,6 +17,8 @@
 #= require_self
 #= require navigation
 #= require utilities
+#= require lessons
 
 $ ->
   window.App.utilities = new R360.Utilities()
+  window.App.lessons = new R360.Lessons()

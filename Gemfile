@@ -9,6 +9,7 @@ gem 'selectivizr-rails'
 gem 'respond-rails'
 gem 'devise'
 gem 'activeadmin', :github => 'activeadmin'
+gem "ckeditor", "~> 4.1.2"
 gem 'bourbon'
 gem 'neat'
 gem 'sass-rails', '~> 5.0'
@@ -21,12 +22,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'friendly_id', '~> 5.1.0'
 
+
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'carrierwave-aws'
 
-gem 'geocoder'
-gem 'gmaps4rails'
+gem 'conred'
 gem 'font-awesome-rails'
 
 group :production do

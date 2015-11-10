@@ -1,10 +1,10 @@
-<nav id="<%= locals[:nav_id] %>">
+<nav id="<%= locals[:nav_id] %>" class="LayoutSidebar-nav LayoutSidebar-nav--training <%= "LayoutSidebar-nav--mobile" if locals[:mobile] %>">
   <div class="SidebarNav">
     <ul>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_build_path) %>"><%= link_to 'Build Your Team', training_build_path %></li>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_lead_path) %>"><%= link_to 'Lead Your Group', training_lead_path %></li>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_grow_path) %>"><%= link_to 'Grow Your Group', training_grow_path %></li>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_manage_path) %>"><%= link_to 'Manage Your Group', training_manage_path %></li>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:build)) %>"><%= link_to 'Build Your Team', training_path(:build) %></li>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:lead)) %>"><%= link_to 'Lead Your Group', training_path(:lead) %></li>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:grow)) %>"><%= link_to 'Grow Your Group', training_path(:grow) %></li>
+      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:manage)) %>"><%= link_to 'Manage Your Group', training_path(:manage) %></li>
     </ul>
   </div>
 </nav>

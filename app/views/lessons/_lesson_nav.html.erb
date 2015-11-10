@@ -1,4 +1,4 @@
-<nav id="<%= locals[:nav_id] %>">
+<nav id="<%= locals[:nav_id] %>" class="LayoutSidebar-nav <%= "LayoutSidebar-nav--mobile" if locals[:mobile] %>">
   <div class="SidebarNav">
     <ul>
       <% @lessons.each do |lesson| %>

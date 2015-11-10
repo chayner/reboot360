@@ -1,4 +1,4 @@
-#LessonNav, #TrainingNav {
+.LayoutSidebar-nav {
   display: none;
   @include media($medium) {
     @include span-columns(1 of 12);
@@ -14,7 +14,11 @@
   }
 }
 
-#TrainingNav {
+.LayoutSidebar-nav--mobile {
+  display: block;
+}
+
+.LayoutSidebar-nav--training {
   @include media($medium) {
     width: 25%;
   }
@@ -26,7 +30,7 @@
   }
 }
 
-#LessonBody, #TrainingBody {
+.LayoutSidebar-body {
   @include media($medium) {
     @include span-columns(11 of 12);
     margin: 0;
@@ -40,8 +44,9 @@
   }
 }
 
-#TrainingBody {
+.LayoutSidebar-body--training {
   @include media($medium) {
+    margin: 0;
     width: 75%;
   }
   @include media($large) {

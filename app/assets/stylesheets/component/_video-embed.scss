@@ -1,0 +1,34 @@
+.VideoEmbed {
+  @include aspect-ratio(960, 540);
+  margin: $base-margin-more auto;
+  text-align: center;
+  width: 960px;
+  max-width: 90%;
+
+  @include media($xlarge) {
+    max-width: 100%;
+  }
+
+  iframe {
+    max-width: 100%;
+    max-height: 100%;
+    @include position(absolute, 0em 0 0 0);
+  }
+}
+
+.VideoEmbed--inline {
+
+  @include media($small) {
+    @include inline-block;
+    max-width: 40%;
+    margin: 4%;
+  }
+  @include media($large) {
+    max-width: 360px;
+    margin: $base-margin;
+  }
+}
+
+.VideoEmbed-grid {
+  text-align: center;
+}

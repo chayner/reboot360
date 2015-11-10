@@ -1,5 +1,5 @@
 <%= render "lesson_nav", locals: { :nav_id => "LessonNav", :mobile => false, :current_page => @lesson } %>
-<section id="LessonBody">
+<section id="LessonBody" class="LayoutSidebar-body">
   <style>
     .PageHeader {
       background: url('<%= asset_path("#{@lesson.image_url}") %>');
@@ -9,36 +9,31 @@
 
   <header class="PageHeader">
     <h1 class="PageHeader-title"><%= @lesson.title %></h1>
-    <div class="PageHeader-subtitle"><%= @lesson.description %></div>
+    <div class="PageHeader-subtitle"><%= @lesson.description.html_safe %></div>
   </header>
 
-  <div class="VideoEmbed"><%= @lesson.video_embed %></div>
+  <% if @lesson.video_embed.present? %>
+    <div class="VideoEmbed"><%= @lesson.get_video_iframe %></div>
+  <% end %>
 
   <ul class="DownloadList">
-
-    <% if @lesson.video_dnload_url.present? %>
-      <li class="DownloadList-item"><%= link_to "Download 1", @lesson.video_dnload_url %></li>
-    <% end %>
-
-    <% if @lesson.lesson_pdf.present? %>
-      <li class="DownloadList-item"><%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{@lesson.lesson_pdf.file.filename}</span></span>".html_safe, @lesson.lesson_pdf_url %></li>
-    <% end %>
-    <% if @lesson.handout_pdf.present? %>
-      <li class="DownloadList-item"><%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{@lesson.handout_pdf.file.filename}</span></span>".html_safe, @lesson.handout_pdf_url %></li>
+    <% @lesson.downloads.each do |download| %>
+      <li class="DownloadList-item"><%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{download.file.file.filename}</span></span>".html_safe, download_link_path(download.id, download.file.file.filename), :type => 'application/pdf', :disposition => 'attachment' %></li>
     <% end %>
   </ul>
 
-  <section class="LessonTeaching">
+  <section class="VideoEmbed-grid">
     <h2>Teaching Tips</h2>
 
-    <div class="LessionTeachingTips">Video 1</div>
-    <div class="LessionTeachingTips">Video 2</div>
+    <% @lesson.videos.each do |video| %>
+      <div class="VideoEmbed VideoEmbed--inline"><%= video.get_video_iframe %></div>
+    <% end %>
   </section>
 
   <section class="Blockquote">
     <div class="Blockquote-wrapper">
       <h2 class="Blockquote-title">Weekly Summary Email</h2>
-      <div class="Blockquote-body"><%= @lesson.weekly_summary %></div>
+      <div class="Blockquote-body"><%= @lesson.weekly_summary.html_safe %></div>
     </div>
   </section>
 

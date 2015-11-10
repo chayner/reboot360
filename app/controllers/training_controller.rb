@@ -1,13 +1,11 @@
 class TrainingController < ApplicationController
 
-  before_action :get_background_image
-
   def index
-    redirect_to training_build_path
+    redirect_to training_path(:build)
   end
 
-  def get_background_image
-    @background_image = I18n.t("training.#{action_name}.background_image")
+  def show
+    @training = Training.find_by_slug(params[:id])
   end
 
 end

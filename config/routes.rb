@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :lessons, :only => [:show, :index]
+  resources :training, :only => [:show, :index]
   get 'site/index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -12,11 +13,7 @@ Rails.application.routes.draw do
 
   match '/profile' => 'users#profile', via: [:get, :patch], :as => :profile
   match '/promote' => 'site#promote', via: [:get], :as => :promote
-  match '/training' => 'training#index', via: [:get], :as => :training
-  match '/training/build' => 'training#build', via: [:get], :as => :training_build
-  match '/training/lead' => 'training#lead', via: [:get], :as => :training_lead
-  match '/training/grow' => 'training#grow', via: [:get], :as => :training_grow
-  match '/training/manage' => 'training#manage', via: [:get], :as => :training_manage
 
+  match '/download/:id/:filename' => 'download#show', via: [:get], :as => :download_link
 
 end

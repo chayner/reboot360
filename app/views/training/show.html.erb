@@ -1,0 +1,38 @@
+<% if @training.image_url %>
+  <style>
+    .PageHeader {
+      background-image: url('<%= asset_path("#{@training.image_url}") %>');
+    }
+  </style>
+<% end %>
+
+<%= render "training_nav", :locals => { :nav_id => 'TrainingNav', :mobile => false } %>
+
+<section id="TrainingBody" class="LayoutSidebar-body LayoutSidebar-body--training">
+  <header class="PageHeader">
+    <h1 class="PageHeader-title"><%= @training.title %></h1>
+    <div class="PageHeader-subtitle"><%= @training.subtitle %></div>
+  </header>
+
+  <section class="Blockquote">
+    <div class="Blockquote-wrapper">
+      <div class="Blockquote-body"><%= @training.description.html_safe %></div>
+    </div>
+  </section>
+
+
+  <section class="VideoEmbed-grid">
+    <% @training.videos.each do |video| %>
+      <div class="VideoEmbed VideoEmbed--inline"><%= video.get_video_iframe %></div>
+    <% end %>
+  </section>
+
+  <ul class="DownloadList">
+    <% @training.downloads.each do |download| %>
+      <li class="DownloadList-item">
+        <% download_name = download.title ? download.title : download.file.file.filename %>
+        <%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{download_name}</span></span>".html_safe, download_link_path(download.id, download.file.file.filename), :type => 'application/pdf', :disposition => 'attachment' %>
+      </li>
+    <% end %>
+  </ul>
+</section>

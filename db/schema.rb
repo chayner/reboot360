@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108024536) do
+ActiveRecord::Schema.define(version: 20151110023803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20151108024536) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "downloads", force: :cascade do |t|
+    t.integer "position"
+    t.integer "training_id"
+    t.integer "lesson_id"
+    t.string  "title"
+    t.string  "file"
+  end
+
   create_table "lessons", force: :cascade do |t|
     t.integer  "week"
     t.string   "title"
@@ -65,6 +73,16 @@ ActiveRecord::Schema.define(version: 20151108024536) do
   end
 
   add_index "lessons", ["slug"], name: "index_lessons_on_slug", unique: true, using: :btree
+
+  create_table "trainings", force: :cascade do |t|
+    t.string "slug"
+    t.string "title"
+    t.text   "subtitle"
+    t.string "image"
+    t.text   "description"
+  end
+
+  add_index "trainings", ["slug"], name: "index_trainings_on_slug", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -85,5 +103,13 @@ ActiveRecord::Schema.define(version: 20151108024536) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "videos", force: :cascade do |t|
+    t.integer "position"
+    t.integer "training_id"
+    t.integer "lesson_id"
+    t.string  "title"
+    t.string  "video_url"
+  end
 
 end
