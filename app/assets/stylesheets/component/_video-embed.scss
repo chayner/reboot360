@@ -14,21 +14,20 @@
     max-height: 100%;
     @include position(absolute, 0em 0 0 0);
   }
-}
 
-.VideoEmbed--inline {
-
-  @include media($small) {
-    display: inline-block;
-    max-width: 40%;
-    margin: 4%;
+  &--inline {
+    @include media($small) {
+      display: inline-block;
+      max-width: 40%;
+      margin: 4%;
+    }
+    @include media($large) {
+      max-width: 360px;
+      margin: $base-margin;
+    }
   }
-  @include media($large) {
-    max-width: 360px;
-    margin: $base-margin;
-  }
-}
 
-.VideoEmbed-grid {
-  text-align: center;
+  &-grid {
+    text-align: center;
+  }
 }

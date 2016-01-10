@@ -5,7 +5,8 @@ class TrainingController < ApplicationController
   end
 
   def show
-    @training = Training.find_by_slug(params[:id])
+    @training_categories = TrainingCategory.all.order(:id)
+    @training_category = TrainingCategory.find_by_slug(params[:id])
   end
 
 end

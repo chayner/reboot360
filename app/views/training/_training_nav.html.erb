@@ -1,10 +1,9 @@
 <nav id="<%= locals[:nav_id] %>" class="LayoutSidebar-nav LayoutSidebar-nav--training <%= "LayoutSidebar-nav--mobile" if locals[:mobile] %>">
   <div class="SidebarNav">
     <ul>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:build)) %>"><%= link_to 'Build Your Team', training_path(:build) %></li>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:lead)) %>"><%= link_to 'Lead Your Group', training_path(:lead) %></li>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:grow)) %>"><%= link_to 'Grow Your Group', training_path(:grow) %></li>
-      <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(:manage)) %>"><%= link_to 'Manage Your Group', training_path(:manage) %></li>
+      <% @training_categories.each do |category| %>
+        <li class="SidebarNav-item<%= " current_page" if current_page?(training_path(category.slug)) %>"><%= link_to category.title, training_path(category.slug) %></li>
+      <% end %>
     </ul>
   </div>
 </nav>

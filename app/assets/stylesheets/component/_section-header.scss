@@ -1,0 +1,15 @@
+.SectionHeader {
+  text-align: center;
+
+  &-title {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+
+  &-description {
+    margin: $base-margin auto 0;
+    @include media($large) {
+      max-width: 60%;
+    }
+  }
+}

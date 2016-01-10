@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110023803) do
+ActiveRecord::Schema.define(version: 20160109193840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20151110023803) do
     t.integer "lesson_id"
     t.string  "title"
     t.string  "file"
+    t.integer "training_category_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -74,15 +75,25 @@ ActiveRecord::Schema.define(version: 20151110023803) do
 
   add_index "lessons", ["slug"], name: "index_lessons_on_slug", unique: true, using: :btree
 
-  create_table "trainings", force: :cascade do |t|
+  create_table "training_categories", force: :cascade do |t|
     t.string "slug"
     t.string "title"
-    t.text   "subtitle"
     t.string "image"
     t.text   "description"
   end
 
-  add_index "trainings", ["slug"], name: "index_trainings_on_slug", using: :btree
+  add_index "training_categories", ["slug"], name: "index_training_categories_on_slug", using: :btree
+
+  create_table "trainings", force: :cascade do |t|
+    t.string  "title"
+    t.text    "subtitle"
+    t.string  "image"
+    t.text    "description"
+    t.integer "training_category_id"
+    t.integer "position"
+  end
+
+  add_index "trainings", ["training_category_id"], name: "index_trainings_on_training_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -110,6 +121,7 @@ ActiveRecord::Schema.define(version: 20151110023803) do
     t.integer "lesson_id"
     t.string  "title"
     t.string  "video_url"
+    t.integer "training_category_id"
   end
 
 end

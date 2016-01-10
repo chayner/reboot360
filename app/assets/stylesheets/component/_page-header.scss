@@ -7,16 +7,16 @@
   padding-top: $base-margin-more;
   padding-bottom: $base-margin-more;
   text-align: center;
-}
 
-  .PageHeader-title {
+  &-title {
     font-weight: normal;
     text-transform: uppercase;
   }
 
-  .PageHeader-subtitle {
+  &-subtitle {
     margin: $base-margin auto 0;
     @include media($large) {
       max-width: 60%;
     }
   }
+}

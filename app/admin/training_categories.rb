@@ -1,30 +1,28 @@
-ActiveAdmin.register Training do
+ActiveAdmin.register TrainingCategory do
   # menu parent: "Episodes"
   config.sort_order = 'id_asc'
 
   scope :all
 
-  # actions :index, :edit, :update
+  actions :index, :edit, :update
 
   index do
-    column :training_category
+    column :slug
     column :title do |training|
       link_to training.title, edit_admin_training_path(training)
     end
     column :image do |training|
       image_tag(training.image_url(:faces_thumb, secure: true), :size => "150x100") if training.image?
     end
-    column :position
     actions do |a|
-      link_to "Site", training_path(a.training_category.slug)
+      link_to "Site", training_path(a.slug)
     end
   end
 
   show title: :title do
     panel 'training details' do
       attributes_table_for training do
-        row :training_category
-        row :subtitle
+        row :slug
         row :description
         row :image do |episode|
           image_tag(training.image_url(:faces_thumb, secure: true), :size => "150x100") if training.image?
@@ -38,10 +36,10 @@ ActiveAdmin.register Training do
     f.semantic_errors
 
     f.inputs "Training Info" do
-      f.input :training_category
+      f.input :slug
       f.input :title, :as => :string
       f.input :description, :as => :string
-      f.input :position
+      f.input :image, :as => :cloudinary_image_upload, :hint => 'Image file size should be less than 150k. Always run images through https://tinyjpg.com/ before uploading'
     end
 
     f.inputs "Teaching Tips" do
