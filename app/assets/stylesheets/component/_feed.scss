@@ -1,0 +1,21 @@
+.Feed {
+
+  &-item {
+    padding-bottom: $base-margin;
+    margin-bottom: $base-margin;
+  }
+
+  &-itemHeader {
+    margin-bottom: $base-margin-less;
+  }
+
+  &-itemHeading {
+    font-size: $base-font-size * 1.4;
+    margin-bottom: 3px;
+  }
+
+  &-itemDate {
+    font-size: $base-font-size * 0.9;
+  }
+
+}

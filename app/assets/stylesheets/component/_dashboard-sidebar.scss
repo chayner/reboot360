@@ -1,0 +1,20 @@
+.DashboardSidebar {
+
+  &-block {
+    border-left: 5px $orange solid;
+    padding: 0 $base-margin-less $base-margin-less;
+    margin-bottom: $base-margin;
+    &--social {
+      background: none;
+    }
+
+    li {
+      margin: $base-margin-less 0;
+    }
+  }
+
+  &-blockHeading {
+    font-size: $base-font-size * 1.3;
+    margin: 0 0 $base-margin-less 0;
+  }
+}

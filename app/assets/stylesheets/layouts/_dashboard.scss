@@ -1,0 +1,32 @@
+.Dashboard {
+  padding: $base-margin;
+  @include outer-container;
+
+  &-sidebar {
+    @include media($medium) {
+      @include span-columns(3 of 8);
+    }
+
+    @include media($large) {
+      @include span-columns(2 of 8);
+    }
+  }
+
+  &-feed {
+    @include media($medium) {
+      @include span-columns(5 of 8);
+      @include pad(0);
+    }
+
+    @include media($large) {
+      @include span-columns(6 of 8);
+      @include pad(default $base-margin-more default default);
+      @include omega();
+    }
+  }
+
+  &-feedItem {
+    padding-bottom: $base-margin;
+  }
+
+}

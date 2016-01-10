@@ -49,7 +49,7 @@
 @import "base/library";
 @import "base/application";
 
-@import "layouts/welcome";
+@import "layouts/dashboard";
 @import "layouts/lesson";
 
 /* Plugins
@@ -73,6 +73,8 @@
 @import "component/video-embed";
 @import "component/training-section";
 @import "component/section-header";
+@import "component/dashboard-sidebar";
+@import "component/feed";
 
 /* Pages
  * -----------------------------------------------------------------------------*/
