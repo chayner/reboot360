@@ -16,13 +16,13 @@
   }
 
   &--inline {
-    @include media($small) {
+    @include media($large) {
       display: inline-block;
       max-width: 40%;
       margin: 4%;
     }
-    @include media($large) {
-      max-width: 360px;
+    @include media($xlarge) {
+      max-width: 40%;
       margin: $base-margin;
     }
   }
