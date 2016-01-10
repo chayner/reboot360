@@ -1,0 +1,13 @@
+menubar: false
+toolbar:
+  - styleselect formatselect | bold italic removeformat | numlist bullist | outdent indent | blockquote
+  - link unlink anchor | fullscreen visualblocks | spellchecker | code
+plugins:
+  - image
+  - link
+  - anchor
+  - fullscreen
+  - visualblocks
+  - spellchecker
+  - code
+content_css: /assets/wysiwyg.css

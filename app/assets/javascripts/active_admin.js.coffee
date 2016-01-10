@@ -1,6 +1,6 @@
-#= require ckeditor/basepath
 #= require active_admin/base
 #= require cloudinary
+#= require tinymce-jquery
 
 @Uploader =
   uploading: false

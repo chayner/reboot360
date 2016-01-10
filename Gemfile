@@ -9,7 +9,7 @@ gem 'selectivizr-rails'
 gem 'respond-rails'
 gem 'devise'
 gem 'activeadmin', :github => 'activeadmin'
-gem "ckeditor", "~> 4.1.2"
+gem 'tinymce-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'sass-rails', '~> 5.0'
