@@ -13,6 +13,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
+#= require jquery-scrolltofixed-min
 #= require slidebars.min
 #= require_self
 #= require navigation
