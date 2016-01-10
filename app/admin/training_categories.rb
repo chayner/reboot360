@@ -2,6 +2,10 @@ ActiveAdmin.register TrainingCategory do
   # menu parent: "Episodes"
   config.sort_order = 'id_asc'
 
+  controller do
+    layout 'active_admin'
+  end
+
   scope :all
 
   actions :index, :edit, :update
@@ -15,7 +19,9 @@ ActiveAdmin.register TrainingCategory do
       image_tag(training.image_url(:faces_thumb, secure: true), :size => "150x100") if training.image?
     end
     actions do |a|
-      link_to "Site", training_path(a.slug)
+      (
+      '<span class="member_link_spacer">|</span>'.html_safe + link_to("View Site", training_path(a.slug), :class => "member_link") + '<span class="member_link_spacer">|</span>'.html_safe + link_to("Trainings", admin_trainings_path('q[training_category_id_eq]' => a.id), :class => "member_link")
+      ).html_safe
     end
   end
 
@@ -38,7 +44,7 @@ ActiveAdmin.register TrainingCategory do
     f.inputs "Training Info" do
       f.input :slug
       f.input :title, :as => :string
-      f.input :description, :as => :string
+      f.input :description, :input_html => { :class => "tinymce", :rows => 5, :cols => 120 }
       f.input :image, :as => :cloudinary_image_upload, :hint => 'Image file size should be less than 150k. Always run images through https://tinyjpg.com/ before uploading'
     end
 

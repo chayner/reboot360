@@ -1,8 +1,14 @@
 ActiveAdmin.register Training do
   # menu parent: "Episodes"
-  config.sort_order = 'id_asc'
+  config.sort_order = 'training_category_id_asc'
+
+  controller do
+    layout 'active_admin'
+  end
 
   scope :all
+
+  filter :training_category
 
   # actions :index, :edit, :update
 
@@ -11,12 +17,12 @@ ActiveAdmin.register Training do
     column :title do |training|
       link_to training.title, edit_admin_training_path(training)
     end
-    column :image do |training|
-      image_tag(training.image_url(:faces_thumb, secure: true), :size => "150x100") if training.image?
-    end
     column :position
     actions do |a|
-      link_to "Site", training_path(a.training_category.slug)
+
+      (
+      '<span class="member_link_spacer">|</span>'.html_safe + link_to("View Site", training_path(a.training_category.slug), :class => "member_link") + '<span class="member_link_spacer">|</span>'.html_safe + link_to("Edit \"#{a.training_category.title}\"", edit_admin_training_category_path(a.training_category))
+      ).html_safe
     end
   end
 
@@ -40,7 +46,7 @@ ActiveAdmin.register Training do
     f.inputs "Training Info" do
       f.input :training_category
       f.input :title, :as => :string
-      f.input :description, :as => :string
+      f.input :description, :input_html => { :class => "tinymce", :rows => 5, :cols => 120 }
       f.input :position
     end
 

@@ -1,7 +1,7 @@
 class TrainingController < ApplicationController
 
   def index
-    redirect_to training_path(:build)
+    redirect_to training_path(TrainingCategory.first.slug)
   end
 
   def show

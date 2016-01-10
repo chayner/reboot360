@@ -1,8 +1,9 @@
 ActiveAdmin.register Lesson do
-  # menu parent: "Episodes"
-  # config.sort_order = 'aired_on_asc'
-
   scope :all
+
+  controller do
+    layout 'active_admin'
+  end
 
   index do
     column :week
@@ -42,16 +43,12 @@ ActiveAdmin.register Lesson do
       f.input :title, :as => :string
       f.input :week
 
-      f.input :description, :as => :ckeditor, :input_html => {:rows => 10}
+      f.input :description, :input_html => { :class => "tinymce", :rows => 5, :cols => 120 }
       f.input :image, :as => :cloudinary_image_upload, :hint => 'Image file size should be less than 150k. Always run images through https://tinyjpg.com/ before uploading'
 
       f.input :video_embed, :as => :text, :input_html => {:rows => 4}
       f.input :video_dnload_url, :as => :string
-      # f.input :lesson_pdf, :as => :file, :hint => (f.object.lesson_pdf.url if f.object.lesson_pdf.present?)
-      # f.input :remove_lesson_pdf, :as => :boolean
-      # f.input :handout_pdf, :as => :file, :hint => f.object.handout_pdf.url
-      # f.input :remove_handout_pdf, :as => :boolean
-      f.input :weekly_summary, :as => :ckeditor, :input_html => {:rows => 10}
+      f.input :weekly_summary, :input_html => { :class => "tinymce", :rows => 20, :cols => 120 }
     end
 
     f.inputs "Downloads" do
