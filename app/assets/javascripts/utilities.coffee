@@ -43,9 +43,10 @@ class R360.Utilities
     if resizeNew == 'large'
       $('#sb-site').attr('id', 'sb-site-disabled')
 
-      $('.SidebarNav').scrollToFixed(
-        offsets: false
-      );
+      if $('body').outerHeight() > 800
+        $('.SidebarNav').scrollToFixed(
+          offsets: false
+        );
 
     if resizeNew in ['xsmall', 'small', 'medium']
       $('.SidebarNav').trigger('detach.ScrollToFixed');
