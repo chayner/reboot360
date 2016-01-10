@@ -3,9 +3,8 @@
   margin: $base-margin-more 0;
   overflow: hidden;
   text-align: center;
-}
 
-  .DownloadList-item {
+  &-item {
     display: block;
     margin: $base-margin 0;
     text-align: left;
@@ -27,14 +26,16 @@
     &:hover i {
       color: $white;
     }
-    .DownloadList-text {
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    .DownloadList-filename {
-      display: block;
-      font-size: .8em;
-      font-weight: normal;
-    }
   }
+
+  &-text {
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  &-filename {
+    display: block;
+    font-size: .8em;
+    font-weight: normal;
+  }
+}

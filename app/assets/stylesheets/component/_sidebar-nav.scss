@@ -4,9 +4,8 @@
   @include media($medium) {
     min-height: 100vh;
   }
-}
 
-  .SidebarNav-item {
+  &-item {
     text-align: center;
     a {
       color: $white;
@@ -21,15 +20,16 @@
     }
   }
 
-.SidebarNav-toggle {
-  background: $darker-gray;
-  color: $white;
-  display: block;
-  font-weight: bold;
-  padding: $base-margin-less / 2 $base-margin-less;
-  text-transform: uppercase;
+  &-toggle {
+    background: $darker-gray;
+    color: $white;
+    display: block;
+    font-weight: bold;
+    padding: $base-margin-less / 2 $base-margin-less;
+    text-transform: uppercase;
 
-  @include media($medium) {
-    display: none;
+    @include media($medium) {
+      display: none;
+    }
   }
 }
