@@ -11,7 +11,7 @@
 <section id="TrainingBody" class="LayoutSidebar-body LayoutSidebar-body--training">
   <header class="PageHeader">
     <h1 class="PageHeader-title"><%= @training_category.title %></h1>
-    <div class="PageHeader-subtitle"><%= @training_category.description %></div>
+    <div class="PageHeader-subtitle"><%= @training_category.description.html_safe %></div>
   </header>
 
   <section class="VideoEmbed-grid">
