@@ -1,0 +1,27 @@
+.PageFooter {
+  background: $dark-gray;
+  color: $light-gray;
+  margin-top: $base-margin-more;
+  text-align: center;
+
+  &-wrap {
+    @include outer-container;
+    padding: $base-margin;
+  }
+  &-copyright {
+    @include media($medium) {
+      @include span-columns(5 of 8);
+      text-align: left;
+    }
+  }
+  &-social {
+    @include media($medium) {
+      @include span-columns(3 of 8);
+      text-align: right;
+    }
+
+    a {
+      color: $light-gray
+    }
+  }
+}

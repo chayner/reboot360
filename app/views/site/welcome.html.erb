@@ -5,4 +5,7 @@
 </header>
 <section class="VideoEmbed-grid">
     <div class="VideoEmbed"><%= get_video_iframe('https://vimeo.com/149941851') %></div>
+    <h2><%= link_to 'Continue on to the Leader Training <i class="fa fa-caret-right"></i>'.html_safe, training_index_path() %></h2>
 </section>
+
+<%= render 'shared/footer' %>
