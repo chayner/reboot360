@@ -18,5 +18,9 @@
     @include media($large) {
       max-width: 60%;
     }
+
+    &--alt {
+      font-size: $base-font-size * 1.3;
+    }
   }
 }
