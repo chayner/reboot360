@@ -44,6 +44,7 @@ class UsersController < ApplicationController
 
     def profile_params
       accessible = [ :name, :phone, :email ]
+      accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end
 end

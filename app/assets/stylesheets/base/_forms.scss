@@ -1,8 +1,7 @@
 fieldset {
-  background: lighten($base-border-color, 10);
-  border: 1px solid $base-border-color;
-  margin: 0 0 ($base-line-height / 2) 0;
-  padding: $base-line-height;
+  border: none;
+  margin: 0 0 ($base-line-height) 0;
+  padding: $base-line-height 0;
 }
 
 input,
@@ -75,4 +74,10 @@ select {
   width: auto;
   max-width: 100%;
   margin-bottom: $base-line-height;
+}
+
+i.help {
+  display: block;
+  margin-top: -0.75em;
+  margin-bottom: 0.75em;
 }

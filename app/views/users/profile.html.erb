@@ -4,15 +4,33 @@
     <%= form_for current_user, :as => 'user', :url => profile_path(current_user), :html => {role: 'form', class: "nifty_form"} do |f| %>
 
       <div id="user-info">
-        <label>Name:</labe>
-        <%= f.text_field :name %>
+        <fieldset>
+          <label>Name:</label>
+          <%= f.text_field :name %>
 
-        <label>Email:</labe>
-        <%= f.text_field :email %>
+          <label>Email:</label>
+          <%= f.text_field :email %>
 
-        <label>Phone:</labe>
-        <%= f.text_field :phone %>
+          <label>Phone:</label>
+          <%= f.text_field :phone %>
+        </fieldset>
+
+        <fieldset>
+
+          <label>Password:</label>
+          <%= f.password_field :password, autocomplete: "off" %>
+          <i class="help">(leave blank if you don't want to change it)</i>
+
+          <label>Password Confirmation:</label>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+          <label>Current Password:</label>
+          <%= f.password_field :current_password, autocomplete: "off" %>
+          <i class="help">(we need your current password to confirm your changes)</i>
+
+        </fieldset>
       </div>
+
 
       <%= f.submit 'Update your Profile', :class => 'btn btn-primary' %>
     <% end -%>
