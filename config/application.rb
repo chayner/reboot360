@@ -26,7 +26,7 @@ module Reboot360
     config.assets.initialize_on_precompile = false
 
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      r301 %r{.*}, 'http://leaderportal.rebootrecovery.com/$&', :if => Proc.new {|rack_env|
+      r301 %r{.*}, 'http://leaderportal.rebootrecovery.com$&', :if => Proc.new {|rack_env|
         rack_env['SERVER_NAME'] != 'leaderportal.rebootrecovery.com'
       }
     end
