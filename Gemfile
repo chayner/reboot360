@@ -33,6 +33,7 @@ gem 'font-awesome-rails'
 group :production do
   gem 'heroku_rails_deflate'
   gem 'rails_12factor'
+  gem 'rack-rewrite'
 end
 
 group :development do
