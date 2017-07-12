@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 <header id="main-menu">
   <div class="MainMenu <%= "MainMenu--sidebar" if locals[:sidebar] %>">
-    <%= link_to(image_tag('logo-reboot.png').html_safe, root_path, :class => 'MainMenu-logo') %>
+    <%= link_to(image_tag('logo-rebootnet.png').html_safe, root_path, :class => 'MainMenu-logo') %>
     <ul class="MainMenu-list">
       <li class="MainMenu-item"><a href="/training"><i class="fa fa-fw fa-book"></i> Leader Training</a></li>
       <li class="MainMenu-item"><a href="/lessons"><i class="fa fa-fw fa-calendar"></i> Weekly Materials</a></li>
