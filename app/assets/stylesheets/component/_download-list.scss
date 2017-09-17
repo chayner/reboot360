@@ -7,21 +7,24 @@
   &-item {
     display: block;
     margin: $base-margin 0;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
 
     @include media($large) {
-      display: inline-block;
-      margin: 0 $base-margin-less;
+      @include span-columns(2 of 8);
+      @include omega(4n);
     }
 
     i {
-      background: $green;
+      background-color: $green;
+      background-size: cover;
       color: $white;
-      float: left;
-      font-size: 2em;
-      margin-right: 0.2em;
+      font-size: 1em;
+      margin: 0 auto 0.2em;
+      text-align: right;
       padding: 0.2em;
+      width: 150px;
+      height: 150px;
     }
     &:hover i {
       color: $white;
@@ -29,13 +32,14 @@
   }
 
   &-text {
-    display: inline-block;
+    display: block;
     font-weight: bold;
+    font-size: .8em;
   }
 
   &-filename {
     display: block;
-    font-size: .8em;
+    font-size: 1.2em;
     font-weight: normal;
   }
 }

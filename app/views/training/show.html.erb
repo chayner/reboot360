@@ -41,7 +41,7 @@
           <% training.downloads.each do |download| %>
             <li class="DownloadList-item">
               <% download_name = download.title ? download.title : download.file.file.filename %>
-              <%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{download_name}</span></span>".html_safe, download_link_path(download.id, download.file.file.filename), :type => 'application/pdf', :disposition => 'attachment' %>
+              <%= link_to "<i class='fa fa-arrow-circle-o-down fa-fw' style='background-image:url(#{download.file_url}); height:#{download.get_new_height(150)}px'></i> <span class='DownloadList-text'>Download <span class='DownloadList-filename'>#{download_name}</span></span>".html_safe, download_link_path(download.id, download.file.file.filename), :type => 'application/pdf', :disposition => 'attachment' %>
             </li>
           <% end %>
         </ul>
